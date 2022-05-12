@@ -37,7 +37,7 @@ Json de pessoas
 ```json
 {
   "id": 1,
-  "email:"hello@lsantos.dev"
+  "email:"hello@gmail.dev"
 }
 ```
 
@@ -52,18 +52,31 @@ compilando o protocolo
 protoc --js_out=import_style=commonjs,binary:. ./pessoa.proto
 
 ```
-O compilador vai criar um arquivo pessoa_pb.js
+O compilador vai criar um arquivo pessoa_pb.js que contém o código necessário para podermos serializar e desserializar nossos dados no formato binário usado pelo protobuf.
 
 ao serializar o json vamos ter o resultado abaixo.
 
     codigo serializar esta na no aquivo main.js no exemplo 1
 
 ```
-  8,   1,  18,  17, 104, 101,
-  108, 108, 111,  64, 108, 115,
-  97, 110, 116, 111, 115,  46,
-  100, 101, 118
+  8,   1,  18, 15, 104, 101,
+  108, 108, 111, 64, 103,  97,
+  109, 105, 108, 46, 100, 101,
+  118
+
 ```
+
+
+Agora, vamos começar com a organização do arquivo, eu geralmente organizo um arquivo protobuf seguindo a ideia de Serviço -> Entidades -> Requests -> Responses. De acordo com as boas práticas da Uber, também é interessante utilizarmos um marcador de namespace como com.seuusername.notes.v1 caso precisemos manter mais de uma versão ao mesmo tempo, porém, para facilitar o desenvolvimento aqui, vamos utilizar a forma mais simples sem nenhum namespace.
+
+#### Próximos estudos
+
+https://github.com/bufbuild/buf
+
+https://github.com/uber/prototool
+
+https://github.com/protobufjs/protobuf.js
+
 
 ##### Referências
 
@@ -74,3 +87,7 @@ https://blog.lsantos.dev/o-guia-do-grpc-2/
 https://grpc.io/docs/protoc-installation/
 
 https://developers.google.com/protocol-buffers/docs/encoding/
+
+https://developers.google.com/protocol-buffers/docs/proto3#scalar
+
+https://developers.google.com/protocol-buffers/docs/proto3#enum
