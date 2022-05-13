@@ -69,6 +69,17 @@ ao serializar o json vamos ter o resultado abaixo.
 
 Agora, vamos começar com a organização do arquivo, eu geralmente organizo um arquivo protobuf seguindo a ideia de Serviço -> Entidades -> Requests -> Responses. De acordo com as boas práticas da Uber, também é interessante utilizarmos um marcador de namespace como com.seuusername.notes.v1 caso precisemos manter mais de uma versão ao mesmo tempo, porém, para facilitar o desenvolvimento aqui, vamos utilizar a forma mais simples sem nenhum namespace.
 
+
+#### Streaming
+
+Além das que são chamadas Unary Calls, temos também Streaming calls, que nada mais são do que respostas e requisições realizadas por meio de uma stream de dados assíncrona. Temos três tipos de streaming calls no gRPC:
+
+- Serverside streaming: Quando a requisição é enviada de forma simples (unária), mas a resposta do servidor é uma stream de dados.
+
+- Clientside streaming: É o oposto da anterior, quando temos a requisição sendo enviada em forma de streams de dados e a resposta do servidor é unária.
+
+- Duplex streaming: Quando tanto a requisição quando a resposta são streams de dados.
+
 #### Próximos estudos
 
 https://github.com/bufbuild/buf
@@ -79,11 +90,17 @@ https://github.com/protobufjs/protobuf.js
 
 https://github.com/khaosdoctor/protots
 
+https://imasters.com.br/back-end/streams-no-node-js-o-que-sao-streams-afinal-parte-01
+
 ##### Referências
 
 https://blog.lsantos.dev/guia-grpc-1/
 
 https://blog.lsantos.dev/o-guia-do-grpc-2/
+
+https://blog.lsantos.dev/o-guia-do-grpc-3/
+
+https://blog.lsantos.dev/o-guia-do-grpc-4/
 
 https://grpc.io/docs/protoc-installation/
 

@@ -1,0 +1,21 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "protoc --js_out=import_style=commonjs,binary:. src/proto/notes.proto",
+    "server": "node ./src/server.js",
+    "client": "node ./src/client.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "google-protobuf": "^3.20.1",
+    "protobufjs": "^6.11.2"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.7",
+    "@grpc/proto-loader": "^0.6.12"
+  }
+}
